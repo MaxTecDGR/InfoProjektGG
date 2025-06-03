@@ -1,1 +1,1 @@
-Wer das ließt stinkt
+Wer das ließt stinkt und ist schwul
