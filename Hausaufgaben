@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class HomeworkApp {
+    private static ArrayList<String> homeworkList = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        System.out.println("Willkommen zur Hausaufgabenverwaltung!");
+        boolean running = true;
+
+        while (running) {
+            System.out.println("\nBitte wählen Sie Ihre Rolle:");
+            System.out.println("1. Lehrer (Hausaufgaben eintragen)");
+            System.out.println("2. Schüler (Hausaufgaben ansehen)");
+            System.out.println("3. Beenden");
+
+            System.out.print("Eingabe: ");
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1":
+                    teacherMenu();
+                    break;
+                case "2":
+                    studentMenu();
+                    break;
+                case "3":
+                    running = false;
+                    System.out.println("Programm beendet.");
+                    break;
+                default:
+                    System.out.println("Ungültige Eingabe. Bitte erneut versuchen.");
+            }
+        }
+        scanner.close();
+    }
+
+    private static void teacherMenu() {
+        System.out.println("\nHausaufgabe eintragen.");
+        System.out.print("Geben Sie die Hausaufgabe ein: ");
+        String homework = scanner.nextLine();
+        if (!homework.trim().isEmpty()) {
+            homeworkList.add(homework.trim());
+            System.out.println("Hausaufgabe gespeichert.");
+        } else {
+            System.out.println("Die Hausaufgabe darf nicht leer sein.");
+        }
+    }
+
+    private static void studentMenu() {
+        System.out.println("\nHausaufgaben Übersicht:");
+        if (homeworkList.isEmpty()) {
+            System.out.println("Keine Hausaufgaben eingetragen.");
+        } else {
+            for (int i = 0; i < homeworkList.size(); i++) {
+                System.out.println((i + 1) + ". " + homeworkList.get(i));
+            }
+        }
+    }
+}
+

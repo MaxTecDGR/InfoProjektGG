@@ -1,0 +1,10 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class DatenbankErstellen
+{
+    public static void main(String[] args){
+        String url = "jdbc:sqlite:stundenplan.db";
+    }
+}
